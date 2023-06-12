@@ -38,6 +38,17 @@ class TestEmployeeComputePayout(unittest.TestCase):
         self.arjan.contracts_landed = 10
         self.assertAlmostEqual(self.arjan.compute_payout(), 3000.0)
 
+    def test_employee_payout_commission_disabled(self):
+        """
+        Whether payout is correctly computed in case of
+        10 contracts landed and 10 hours worked,
+        but commission is disabled.
+        """
+        self.arjan.hours_worked = 10.0
+        self.arjan.contracts_landed = 10
+        self.arjan.has_commission = False
+        self.assertAlmostEqual(self.arjan.compute_payout(), 2000.0)
+
 
 if __name__ == "__main__":
     unittest.main()
