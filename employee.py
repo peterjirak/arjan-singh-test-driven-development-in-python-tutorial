@@ -19,5 +19,5 @@ class Employee:
 
     def compute_payout(self) -> float:
         """Compute how much the employee should be paid."""
-        payout = self.pay_rate * self.hours_worked
+        payout = self.pay_rate * self.hours_worked + self.employer_cost
         return payout
