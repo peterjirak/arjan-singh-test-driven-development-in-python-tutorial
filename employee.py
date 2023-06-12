@@ -19,6 +19,6 @@ class Employee:
 
     def compute_payout(self) -> float:
         """Compute how much the employee should be paid."""
-        commission_payment = self.commission * self.contracts_landed
+        commission_payment = self.commission * self.contracts_landed if self.has_commission else 0
         payout = self.pay_rate * self.hours_worked + self.employer_cost + commission_payment
         return payout
