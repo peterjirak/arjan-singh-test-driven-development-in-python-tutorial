@@ -29,6 +29,15 @@ class TestEmployeeComputePayout(unittest.TestCase):
         self.arjan.hours_worked = 10.0
         self.assertAlmostEqual(self.arjan.compute_payout(), 2000.0)
 
+    def test_employee_payout_with_commission(self):
+        """
+        Whether payout is correctly computed in case of
+        10 contracts landed and 10 hours worked.
+        """
+        self.arjan.hours_worked = 10.0
+        self.arjan.contracts_landed = 10
+        self.assertAlmostEqual(self.arjan.compute_payout(), 3000.0)
+
 
 if __name__ == "__main__":
     unittest.main()
